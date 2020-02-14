@@ -42,16 +42,24 @@ namespace AppSwipe
             SwipeMenuItem callItem = new SwipeMenuItem(this)
             {
                 Width = 200,
-                Background = new ColorDrawable(Color.AliceBlue),
-                IconRes = Resource.Mipmap.icon_like
+                Background = new ColorDrawable(Color.Red),                
+                Title = "hello",
+                TitleColor = Color.Black,
+                TitleSize = 14
+                
+                //IconRes = Resource.Mipmap.icon_like, // the word can be replaced by icon resource
             };
             menu.AddMenuItem(callItem);
 
             SwipeMenuItem copyItem = new SwipeMenuItem(this)
             {
                 Background = new ColorDrawable(Color.Azure),
-                Width = 200,
-                IconRes = Resource.Mipmap.icon_delete
+                Width = 200,                
+                Title = "hello",
+                TitleColor = Color.Black,
+                TitleSize = 14
+
+                //IconRes = Resource.Mipmap.icon_delete,
             };
             menu.AddMenuItem(copyItem);
         }
