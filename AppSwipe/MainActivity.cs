@@ -5,6 +5,8 @@ using Android.Graphics.Drawables;
 using Android.Graphics;
 using System.Collections.Generic;
 using AppSwipe.SwipemenuListview;
+using AppSwipe.Model;
+using AppSwipe.Adapters;
 
 namespace AppSwipe
 {
@@ -16,23 +18,42 @@ namespace AppSwipe
         {
             base.OnCreate(savedInstanceState);
 
-            contacts.Add("Item 1");
-            contacts.Add("Item 2");
-            contacts.Add("Item 3");
-            contacts.Add("Item 4");
-            contacts.Add("Item 5");
-            contacts.Add("Item 6");
-            contacts.Add("Item 7");
-            contacts.Add("Item 8");
-            contacts.Add("Item 9");
-            contacts.Add("Item 10");
+            //contacts.Add("Item 1");
+            //contacts.Add("Item 2");
+            //contacts.Add("Item 3");
+            //contacts.Add("Item 4");
+            //contacts.Add("Item 5");
+            //contacts.Add("Item 6");
+            //contacts.Add("Item 7");
+            //contacts.Add("Item 8");
+            //contacts.Add("Item 9");
+            //contacts.Add("Item 10");
 
+            var list = new List<Businesser>()
+            {
+                new Businesser
+                {
+                    BusinesserNO = "N001",
+                    BusinesserName = "Andy"
+                },
+                new Businesser
+                {
+                    BusinesserNO = "N002",
+                    BusinesserName = "Brian"
+                },
+                new Businesser
+                {
+                    BusinesserNO = "N003",
+                    BusinesserName = "Jone"
+                }
+            };
+            
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
             SwipeMenuListView listview = FindViewById<SwipeMenuListView>(Resource.Id.listView);
 
-            ArrayAdapter<string> ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, contacts);
-            listview.Adapter = ListAdapter;
+            //ArrayAdapter<string> ListAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, contacts);
+            listview.Adapter = new ListViewAdapter(this,list);
 
             listview.MenuCreator = this;
             listview.MenuItemClickListener = this;
@@ -67,7 +88,7 @@ namespace AppSwipe
         public bool OnMenuItemClick(int position, SwipeMenu menu, int index)
         {
             //var contact = ((listview.Adapter as SwipeMenuAdapter).WrappedAdapter as ContactUsSwipeAdapter).Items[position];
-            string contact = contacts[position];
+            //string contact = contacts[position];
             switch (index)
             {
                 case 0:
