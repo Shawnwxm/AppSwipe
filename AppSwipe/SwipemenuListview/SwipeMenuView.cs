@@ -86,13 +86,15 @@ namespace AppSwipe.SwipemenuListview
 
         private TextView CreateTitle(SwipeMenuItem item)
         {
-            return new TextView(Context)
+            var view = new TextView(Context)
             {
                 Text = (item.Title),
                 Gravity = Android.Views.GravityFlags.Center,
                 TextSize = item.TitleSize,
                 //tv.SetTextColor(item.TitleColor);
             };
+            view.SetTextColor(Color.White);
+            return view;
         }       
         public void OnClick(View v)
         {
